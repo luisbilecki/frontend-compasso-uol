@@ -1,6 +1,6 @@
 <template>
   <b-row class="bg-white border d-flex flex-column align-items-center justify-content-center mt-3">
-    <b-row>    
+    <b-row id="user-profile">    
       <b-col>
         <b-row class="py-3">
           <b-col sm=4 class="text-center">

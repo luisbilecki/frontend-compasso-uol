@@ -35,3 +35,11 @@ O Frontend da aplicação foi desenvolvido utilizando Vue.js e Bootstrap.
 ```
 
 4. Acesse o endereço `localhost:8080` para abrir a aplicação :).
+
+5. Para rodar os testes unitários utilize:
+
+```
+  docker exec -it frontend-compasso-uol yarn test
+``` 
+
+*Atenção*: é necessário que o container frontend-compasso-uol esteja rodando.

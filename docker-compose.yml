@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  frontend:
+    container_name: frontend-compasso-uol
+    build: '.'
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules      
+    ports:
+      - '8080:8080'
+

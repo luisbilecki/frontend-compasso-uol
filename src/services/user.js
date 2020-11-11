@@ -1,6 +1,6 @@
 import usersApi from '../api/user';
 
-const getUserDetails = async (username) => {
+const getUserDetails = async username => {
   const [profile, repos, starred] = await Promise.all([
     usersApi.getUser(username), // profile
     usersApi.getRepos(username), // repositories

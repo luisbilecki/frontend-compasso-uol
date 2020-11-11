@@ -10,7 +10,7 @@
             >
               <b-form-input
                 id="username"
-                v-model="form.username"
+                v-model="username"
                 type="text"
                 required
                 placeholder="Search username"
@@ -33,15 +33,13 @@ export default {
   name: 'SearchBox',
   data() {
     return {
-      form: {
-        username: ''
-      }
+      username: ''
     }
   },
   methods: {
     onSubmit(evt) {
       evt.preventDefault()
-      alert(JSON.stringify(this.form))
+      this.$emit('doUserSearch', this.username)
     }
   }
 }

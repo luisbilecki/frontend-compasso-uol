@@ -4,16 +4,16 @@
       <b-col>
         <b-row class="py-3">
           <b-col sm=4 class="text-center">
-            <img :src="user.avatar_url" alt="" class="img-rounded img-fluid" width="150" height="150"/>
+            <img :src="user.profile.avatar_url" alt="" class="img-rounded img-fluid" width="150" height="150"/>
           </b-col>
           <b-col sm=8 class="d-flex flex-column justify-content-center">
-            <h4>{{user.name}}</h4>
-            <small v-if="user.email">{{user.email}}</small>
-            <small v-if="user.bio">{{user.bio}}</small>
+            <h4>{{user.profile.name}}</h4>
+            <small v-if="user.profile.email">{{user.profile.email}}</small>
+            <small v-if="user.profile.bio">{{user.profile.bio}}</small>
             <small class="d-flex justify-content-between">
-              <span>{{user.public_repos}} repositories</span>
-              <span>{{user.followers}} followers</span>
-              <span>{{user.following}} following</span>
+              <span>{{user.profile.public_repos}} repositories</span>
+              <span>{{user.profile.followers}} followers</span>
+              <span>{{user.profile.following}} following</span>
             </small>
           </b-col>
         </b-row>
@@ -21,8 +21,8 @@
     </b-row>
     <b-row class="accordion w-100" role="tablist">
       <b-col>
-        <ReposList />
-        <StarredList />
+        <ReposList :items=user.repos />
+        <StarredList :items=user.starred />
       </b-col>
     </b-row>
   </b-row>
@@ -38,17 +38,10 @@ export default {
     ReposList,
     StarredList
   },
-  data() {
-    return {
-      user: {
-        name: 'Luís Felipe Bilecki',
-        email: 'luis.bilecki@gmail.com',
-        bio: 'Fullstack Developer',
-        public_repos: 45,
-        followers: 13,
-        following: 27,
-        avatar_url: 'https://avatars1.githubusercontent.com/u/24378782?v=4'
-      }
+  props: {
+    user: {
+      type: Object,
+      required: true
     }
   }
 }

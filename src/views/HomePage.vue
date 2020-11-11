@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SearchBox v-on:doUserSearch="doUserSearch" />
+    <SearchBox v-on:doUserSearch="fetchUserData" />
     <Error v-if="error" :message="error" />
     <Loading v-if="loading" />
     <UserProfile v-if="user" :user="user"/>
@@ -23,9 +23,22 @@ export default {
     SearchBox,
     UserProfile
   },
-  props: {},
+  created () {
+    this.handleUserParam()
+  },
+  watch: {
+    '$route': 'handleUserParam'
+  },
   methods: {
-    doUserSearch: function (username) {
+    handleUserParam: function () {
+      const username = this.$route.params.username;
+      
+      if (username) {
+        this.fetchUserData(username)
+      }
+    },
+    fetchUserData: function (username) {
+      this.user = null
       this.loading = true
 
       usersService

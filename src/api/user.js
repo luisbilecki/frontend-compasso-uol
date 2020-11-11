@@ -1,4 +1,4 @@
-import axios from './base'
+import axios from './base';
 
 const getUser = async username => {
   return axios

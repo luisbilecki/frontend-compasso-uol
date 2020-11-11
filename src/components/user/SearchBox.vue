@@ -42,5 +42,5 @@ export default {
       this.$emit('doUserSearch', this.username);
     }
   }
-}
+};
 </script>

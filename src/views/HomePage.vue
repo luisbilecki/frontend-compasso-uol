@@ -49,7 +49,7 @@ export default {
             profile: data.profile,
             repos: data.repos,
             starred: data.starred
-          }
+          };
         })
         .catch(err => {
           console.error(err);
@@ -58,7 +58,7 @@ export default {
         })
         .finally(() => {
           this.loading = false;
-        })
+        });
     }
   },
   data() {

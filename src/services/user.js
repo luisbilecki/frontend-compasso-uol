@@ -12,6 +12,6 @@ const getUserDetails = async username => {
     repos,
     starred
   };
-}
+};
 
 export default { getUserDetails };

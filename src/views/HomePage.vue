@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import SearchBox from '@/components/SearchBox.vue';
-import Error from '@/components/Error.vue';
-import Loading from '@/components/Loading.vue';
-import UserProfile from '@/components/UserProfile.vue';
+import Error from '@/components/ui/Error.vue';
+import Loading from '@/components/ui/Loading.vue';
+import SearchBox from '@/components/user/SearchBox.vue';
+import UserProfile from '@/components/user/UserProfile.vue';
 
 import usersService from '@/services/user';
 
@@ -24,7 +24,7 @@ export default {
     UserProfile
   },
   created () {
-    this.handleUserParam()
+    this.handleUserParam();
   },
   watch: {
     '$route': 'handleUserParam'
@@ -34,17 +34,17 @@ export default {
       const username = this.$route.params.username;
       
       if (username) {
-        this.fetchUserData(username)
+        this.fetchUserData(username);
       }
     },
     fetchUserData: function (username) {
-      this.user = null
-      this.loading = true
+      this.user = null;
+      this.loading = true;
 
       usersService
         .getUserDetails(username)
         .then(data => {
-          this.error = null
+          this.error = null;
           this.user = {
             profile: data.profile,
             repos: data.repos,
@@ -52,12 +52,12 @@ export default {
           }
         })
         .catch(err => {
-          console.error(err)
-          this.error = 'Error during the fetch process...'
-          this.user = null
+          console.error(err);
+          this.error = 'Error during the fetch process...';
+          this.user = null;
         })
         .finally(() => {
-          this.loading = false
+          this.loading = false;
         })
     }
   },
@@ -66,7 +66,7 @@ export default {
       user: null,
       error: null,
       loading: false 
-    }
+    };
   }
 };
 </script>

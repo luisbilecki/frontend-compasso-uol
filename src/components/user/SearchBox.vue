@@ -34,12 +34,12 @@ export default {
   data() {
     return {
       username: ''
-    }
+    };
   },
   methods: {
     onSubmit(evt) {
-      evt.preventDefault()
-      this.$emit('doUserSearch', this.username)
+      evt.preventDefault();
+      this.$emit('doUserSearch', this.username);
     }
   }
 }

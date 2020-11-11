@@ -5,13 +5,13 @@ const getUserDetails = async username => {
     usersApi.getUser(username), // profile
     usersApi.getRepos(username), // repositories
     usersApi.getStarred(username) // starred
-  ])
+  ]);
 
   return {
     profile,
     repos,
     starred
-  }
+  };
 }
 
-export default { getUserDetails }
+export default { getUserDetails };

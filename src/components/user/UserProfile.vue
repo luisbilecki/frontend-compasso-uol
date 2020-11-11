@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import ReposList from '@/components/ReposList.vue';
-import StarredList from '@/components/StarredList.vue';
+import ReposList from '@/components/user/ReposList.vue';
+import StarredList from '@/components/user/StarredList.vue';
 
 export default {
   name: 'UserProfile',

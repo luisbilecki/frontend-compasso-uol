@@ -1,12 +1,11 @@
 <template>
   <b-list-group>
-    <ListItem v-for="item in items" :key="item.name" :title="item.name">
-    </ListItem>
+    <ListItem v-for="item in items" :key="item.name" :title="item.name" />
   </b-list-group>
 </template>
 
 <script>
-import ListItem from '@/components/ListItem.vue';
+import ListItem from '@/components/ui/ListItem.vue';
 
 export default {
   name: 'List',
